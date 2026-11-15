@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "burncal"
+version = "0.2.0"
+description = "Harmonized MODIS + VIIRS burning activity calendar from NASA FIRMS hotspots"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "shapely>=2.0",
+    "pyarrow>=14",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "requests>=2.31",
+    "scipy>=1.10",  # fire events (connected components)
+    "scikit-learn>=1.3",  # short-range forecast (burncal.forecast)
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "jupyter>=1.0", "python-dotenv>=1.0"]
+# peat map (CIFOR GeoTIFF in a .7z) and GFED5 burned area (netCDF4/HDF5): scripts/download_context.py --peat --gfed
+context = ["py7zr>=0.20", "rasterio>=1.3", "h5py>=3.8"]
+ml = ["scikit-learn>=1.3", "lightgbm>=4.0", "shap>=0.44"]
+geo = ["geopandas>=0.14"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]

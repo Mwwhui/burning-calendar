@@ -1,0 +1,50 @@
+# Data and outputs
+data/raw/*
+!data/raw/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.zip
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+data/raw/.cache/
+
+# Tooling
+.pytest_cache/
+*.egg-info/
+build/
+
+# Downloaded context data (re-create with scripts/download_context.py)
+data/external/*
+!data/external/.gitkeep
+
+# Processed data (re-create with scripts/build_cube.py)
+data/processed*/
+
+# Superseded starter notebook (replaced by notebooks/harmonization_pipeline.ipynb and src/burncal)
+notebooks/archive/
+
+# Private planning notes (the setup guide stays: README links to it)
+docs/planning/*
+!docs/planning/getting-started.md
+
+# Working notes for the AI coding assistant and the task list (kept locally, not published)
+CLAUDE.md
+TODO.md
+web/AGENTS.md
+.claude/
+
+# Planning-phase documents (proposal, background research, competitor review, user-testing plan).
+# docs/research/conae-tools.md stays: the README links to it.
+docs/proposal.md
+docs/research/01-challenge-and-sensors.md
+docs/research/02-competitive-landscape.md
+docs/research/03-sources.md
+docs/user-testing/

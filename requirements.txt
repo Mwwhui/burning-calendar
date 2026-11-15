@@ -1,0 +1,3 @@
+# Installs the burncal package (src/burncal) in editable mode with dev tools.
+# Extras for later phases: pip install -e ".[dev,ml,geo,app]"
+-e .[dev]
